@@ -17,11 +17,6 @@ module "kong" {
   depends_on = [module.httpd]
 }
 
-module "local-exec" {
-  source = "./modules/local-exec"
-  depends_on = [module.kong]
-}
-
 module "minio" {
   source = "./modules/minio"
   depends_on = [module.kong]

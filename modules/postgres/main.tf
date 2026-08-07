@@ -26,7 +26,7 @@ resource "helm_release" "postgres" {
 
         password = "fuko09phsurxho"
 
-        database = "apps"
+        database = "app"
       }
 
 

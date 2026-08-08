@@ -29,6 +29,6 @@ module "argo-events" {
 
 module "debezium" {
   source = "./modules/debezium"
-  depends_on = [module.ingress]
+  depends_on = [module.argo-events]
 }
 

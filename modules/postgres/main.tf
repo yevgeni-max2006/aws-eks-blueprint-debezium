@@ -5,40 +5,28 @@ resource "kubernetes_namespace" "postgres" {
   }
 }
 
-
 resource "helm_release" "postgres" {
-
   name       = "postgres"
   namespace  = kubernetes_namespace.postgres.metadata[0].name
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "postgresql"
+  version    = "16.4.6"
 
-  version = "16.4.6"
   values = [
-
     yamlencode({
-
       auth = {
-
         postgresPassword = "postgres"
 
         username = "debezium"
-
-        password = "febezium"
-
+        password = "debezium"
         database = "app"
       }
 
-
       primary = {
-
         persistence = {
-
           enabled = true
-
-          size = "10Gi"
+          size    = "10Gi"
         }
-
 
         extendedConfiguration = <<-EOF
           wal_level = logical
@@ -46,7 +34,6 @@ resource "helm_release" "postgres" {
           max_replication_slots = 10
         EOF
       }
-
     })
   ]
 

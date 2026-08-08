@@ -27,8 +27,12 @@ module "argo-events" {
   depends_on = [module.minio]
 }
 
-module "debezium" {
-  source = "./modules/debezium"
+module "postgres" {
+  source = "./modules/postgres"
   depends_on = [module.argo-events]
 }
 
+module "debezium" {
+  source = "./modules/debezium"
+  depends_on = [module.postgres]
+}

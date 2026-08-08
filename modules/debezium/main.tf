@@ -1,16 +1,4 @@
 
-terraform {
-  required_providers {
-    kubernetes = {
-      source = "hashicorp/kubernetes"
-    }
-
-    helm = {
-      source = "hashicorp/helm"
-    }
-  }
-}
-
 resource "helm_release" "debezium_operator" {
   name       = "debezium-operator"
   repository = "https://charts.debezium.io"

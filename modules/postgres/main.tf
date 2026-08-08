@@ -22,9 +22,9 @@ resource "helm_release" "postgres" {
 
         postgresPassword = "postgres"
 
-        username = "admin"
+        username = "debezium"
 
-        password = "fuko09phsurxho"
+        password = "febezium"
 
         database = "app"
       }

@@ -34,9 +34,5 @@ module "postgres" {
 
 module "debezium" {
   source = "./modules/debezium"
-  providers = {
-    kubernetes = kubernetes
-    helm       = helm
-  }
   depends_on = [module.postgres]
 }
